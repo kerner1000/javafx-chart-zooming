@@ -1,4 +1,4 @@
-# JavaFX Chart Zooming done (somewhat) Better
+# JavaFX Chart Zooming Done (somewhat) Better
 
 ![Demo 1](https://j.gifs.com/xGN7rz.gif)
 
