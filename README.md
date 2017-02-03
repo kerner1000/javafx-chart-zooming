@@ -1,1 +1,1 @@
-# JavaFX Chart Zooming done (somewhat) better
+# JavaFX Chart Zooming done (somewhat) Better
