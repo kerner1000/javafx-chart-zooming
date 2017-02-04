@@ -22,6 +22,7 @@ package com.silicosciences.javafx.charts.zooming;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -66,15 +67,25 @@ public class ZoomManager<X, Y> {
 	return result;
     }
 
-    static Number getNumber(final Axis<?> axis, final double cooridnate) {
-	final Object object = axis.getValueForDisplay(cooridnate);
-	if (object != null) {
-	    if (object instanceof Number) {
-		final Number number = (Number) object;
-		return number;
-	    }
+    static <X, Y> ObservableList<X> extractXValues(final ObservableList<Data<X, Y>> data) {
+	final ObservableList<X> result = FXCollections.observableArrayList();
+	for (final Data<X, Y> d : data) {
+	    result.add(d.getXValue());
 	}
-	return null;
+	return result;
+    }
+
+    static <X, Y> ObservableList<Y> extractYValues(final ObservableList<Data<X, Y>> data) {
+	final ObservableList<Y> result = FXCollections.observableArrayList();
+	for (final Data<X, Y> d : data) {
+	    result.add(d.getYValue());
+	}
+	return result;
+    }
+
+    static Object getObject(final Axis<?> axis, final double cooridnate) {
+	final Object object = axis.getValueForDisplay(cooridnate);
+	return object;
     }
 
     private final ObservableList<XYChart.Series<X, Y>> series;
@@ -136,6 +147,45 @@ public class ZoomManager<X, Y> {
 	    // System.out.println("Skip tiny zoom");
 	}
 
+    }
+
+    private void doZoom(final boolean x, final Object o1, final Object o2) {
+	if (o1 instanceof Number && o2 instanceof Number) {
+	    doZoom(x, (Number) o1, (Number) o2);
+	} else if (o1 instanceof String && o2 instanceof String) {
+	    doZoom(x, (String) o1, (String) o2);
+	}
+    }
+
+    private void doZoom(final boolean x, final String s1, final String s2) {
+	final Iterator<XYChart.Series<X, Y>> it = chart.getData().iterator();
+	while (it.hasNext()) {
+	    final XYChart.Series<X, Y> s = it.next();
+	    final List<?> values;
+	    if (x) {
+		values = extractXValues(s.getData());
+	    } else {
+		values = extractYValues(s.getData());
+	    }
+	    final int index1 = values.indexOf(s1);
+	    final int index2 = values.indexOf(s2);
+	    final int lower = Math.min(index1, index2);
+	    final int upper = Math.max(index1, index2);
+	    final Iterator<Data<X, Y>> it2 = s.getData().iterator();
+	    while (it2.hasNext()) {
+		final Data<X, Y> d = it2.next();
+		final Object value;
+		if (x) {
+		    value = d.getXValue();
+		} else {
+		    value = d.getYValue();
+		}
+		final int index = values.indexOf(value);
+		if (index != -1 && (index < lower || index > upper)) {
+		    it2.remove();
+		}
+	    }
+	}
     }
 
     private synchronized void restoreData() {
@@ -212,10 +262,10 @@ public class ZoomManager<X, Y> {
 	    @Override
 	    public void handle(final MouseEvent event) {
 
-		final Number nx1 = getNumber(xAxis, mouseAnchor2.get().getX());
-		final Number nx2 = getNumber(xAxis, event.getX());
-		final Number ny1 = getNumber(yAxis, mouseAnchor2.get().getY());
-		final Number ny2 = getNumber(yAxis, event.getY());
+		final Object nx1 = getObject(xAxis, mouseAnchor2.get().getX());
+		final Object nx2 = getObject(xAxis, event.getX());
+		final Object ny1 = getObject(yAxis, mouseAnchor2.get().getY());
+		final Object ny2 = getObject(yAxis, event.getY());
 
 		if (nx1 != null && nx2 != null) {
 		    doZoom(true, nx1, nx2);
