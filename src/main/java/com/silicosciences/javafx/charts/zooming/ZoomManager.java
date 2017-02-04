@@ -29,6 +29,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.chart.Axis;
@@ -86,6 +87,14 @@ public class ZoomManager<X, Y> {
     static Object getObject(final Axis<?> axis, final double cooridnate) {
 	final Object object = axis.getValueForDisplay(cooridnate);
 	return object;
+    }
+
+    static Node getRootNode(final Node node) {
+	Node n = node;
+	while (n.getParent() != null) {
+	    n = n.getParent();
+	}
+	return n;
     }
 
     private final ObservableList<XYChart.Series<X, Y>> series;
@@ -152,12 +161,24 @@ public class ZoomManager<X, Y> {
     private void doZoom(final boolean x, final Object o1, final Object o2) {
 	if (o1 instanceof Number && o2 instanceof Number) {
 	    doZoom(x, (Number) o1, (Number) o2);
-	} else if (o1 instanceof String && o2 instanceof String) {
+	} else if (o1 instanceof String || o2 instanceof String) {
 	    doZoom(x, (String) o1, (String) o2);
+	} else {
+	    final int wait = 0;
 	}
     }
 
-    private void doZoom(final boolean x, final String s1, final String s2) {
+    private void doZoom(final boolean x, String s1, String s2) {
+	if (s1 == null && s2 == null) {
+	    return;
+	}
+	if (s1 == null) {
+	    s1 = s2;
+	}
+	if (s2 == null) {
+	    s2 = s1;
+	}
+
 	final Iterator<XYChart.Series<X, Y>> it = chart.getData().iterator();
 	while (it.hasNext()) {
 	    final XYChart.Series<X, Y> s = it.next();
@@ -199,7 +220,6 @@ public class ZoomManager<X, Y> {
     private void setUpZooming(final Rectangle rect, final XYChart<X, Y> chart) {
 
 	setUpZoomingRectangle(rect);
-	setUpZoomingValueBounds(chart.getXAxis(), chart.getYAxis());
 
     }
 
@@ -209,6 +229,8 @@ public class ZoomManager<X, Y> {
      * @param rect
      */
     private void setUpZoomingRectangle(final Rectangle rect) {
+
+	final Node chartBackground = chart.lookup(".chart-plot-background");
 	final ObjectProperty<Point2D> mouseAnchor = new SimpleObjectProperty<>();
 	chart.setOnMousePressed(new EventHandler<MouseEvent>() {
 	    @Override
@@ -242,39 +264,23 @@ public class ZoomManager<X, Y> {
 	chart.setOnMouseReleased(new EventHandler<MouseEvent>() {
 	    @Override
 	    public void handle(final MouseEvent event) {
+
+		final Bounds bb = chartBackground.sceneToLocal(rect.getBoundsInLocal());
+
+		final double minx = bb.getMinX();
+		final double maxx = bb.getMaxX();
+
+		final double miny = bb.getMinY();
+		final double maxy = bb.getMaxY();
+
+		doZoom(true, chart.getXAxis().getValueForDisplay(minx), chart.getXAxis().getValueForDisplay(maxx));
+
+		doZoom(false, chart.getYAxis().getValueForDisplay(miny), chart.getYAxis().getValueForDisplay(maxy));
+
 		rect.setWidth(0);
 		rect.setHeight(0);
 	    }
 	});
     }
 
-    private void setUpZoomingValueBounds(final Axis<X> xAxis, final Axis<Y> yAxis) {
-	final Node chartBackground = chart.lookup(".chart-plot-background");
-	final ObjectProperty<Point2D> mouseAnchor2 = new SimpleObjectProperty<>();
-	chartBackground.setOnMousePressed(new EventHandler<MouseEvent>() {
-	    @Override
-	    public void handle(final MouseEvent event) {
-		mouseAnchor2.set(new Point2D(event.getX(), event.getY()));
-	    }
-	});
-
-	chartBackground.setOnMouseReleased(new EventHandler<MouseEvent>() {
-	    @Override
-	    public void handle(final MouseEvent event) {
-
-		final Object nx1 = getObject(xAxis, mouseAnchor2.get().getX());
-		final Object nx2 = getObject(xAxis, event.getX());
-		final Object ny1 = getObject(yAxis, mouseAnchor2.get().getY());
-		final Object ny2 = getObject(yAxis, event.getY());
-
-		if (nx1 != null && nx2 != null) {
-		    doZoom(true, nx1, nx2);
-		}
-
-		if (ny1 != null && ny2 != null) {
-		    doZoom(false, ny1, ny2);
-		}
-	    }
-	});
-    }
 }
