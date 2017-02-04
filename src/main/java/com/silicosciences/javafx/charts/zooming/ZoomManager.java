@@ -107,39 +107,29 @@ public class ZoomManager<X, Y> {
 	final double max = Math.max(n1.doubleValue(), n2.doubleValue());
 	if (max - min > 1) {
 	    zoomed = true;
-	    final Iterator<?> it = chart.getData().iterator();
+	    final Iterator<XYChart.Series<X, Y>> it = chart.getData().iterator();
 	    while (it.hasNext()) {
-		final Object next = it.next();
-		if (next instanceof XYChart.Series<?, ?>) {
-		    final XYChart.Series<?, ?> s = (Series<?, ?>) next;
-		    final Iterator<?> it2 = s.getData().iterator();
-		    while (it2.hasNext()) {
-			final Object next2 = it2.next();
-			if (next2 instanceof XYChart.Data<?, ?>) {
-			    final XYChart.Data<?, ?> d = (Data<?, ?>) next2;
-			    final Object value;
-			    if (x) {
-				value = d.getXValue();
-			    } else {
-				value = d.getYValue();
-			    }
-			    if (value instanceof Number) {
-				final Number n = (Number) value;
-				final double dd = n.doubleValue();
-				if (dd < min || dd > max) {
-				    it2.remove();
-				} else {
-				}
-			    }
+		final XYChart.Series<X, Y> s = it.next();
+		final Iterator<XYChart.Data<X, Y>> it2 = s.getData().iterator();
+		while (it2.hasNext()) {
+		    final XYChart.Data<X, Y> d = it2.next();
+		    final Object value;
+		    if (x) {
+			value = d.getXValue();
+		    } else {
+			value = d.getYValue();
+		    }
+		    if (value instanceof Number) {
+			final Number n = (Number) value;
+			final double dd = n.doubleValue();
+			if (dd < min || dd > max) {
+			    it2.remove();
 			} else {
-			    System.err.println("Wrong data type " + next2);
-			}
-			if (s.getData().isEmpty()) {
-			    it.remove();
 			}
 		    }
-		} else {
-		    System.err.println("Wrong data type " + next);
+		    if (s.getData().isEmpty()) {
+			it.remove();
+		    }
 		}
 	    }
 	} else {
