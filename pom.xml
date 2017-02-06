@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.silicosciences</groupId>
 	<artifactId>javafx-chart-zooming</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.3</version>
 	 <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
@@ -29,7 +29,7 @@
 	 <url>git:git@github.com:silicosciences/javafx-chart-zooming.git</url>
         <connection>scm:git:git@github.com:silicosciences/javafx-chart-zooming.git</connection>
         <developerConnection>scm:git:git@github.com:silicosciences/javafx-chart-zooming.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>javafx-chart-zooming-0.0.3</tag>
     </scm>
     
 
