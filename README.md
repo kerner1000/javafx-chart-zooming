@@ -20,5 +20,5 @@ This project is synced to Maven Central, so you can just add the following depen
 <groupId>com.github.silicosciences</groupId>
 <artifactId>javafx-chart-zooming</artifactId>
 <version>0.0.4</version>
-
+```
 ### Eclipse RCP/ OSGi
