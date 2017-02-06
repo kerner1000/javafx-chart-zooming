@@ -11,3 +11,6 @@
 ## ToDo
 0. ~~Only NumberAxis can be zoomed.~~ Fixed.
 0. Add Padding functionality.
+
+## HoTo use
+### Maven
