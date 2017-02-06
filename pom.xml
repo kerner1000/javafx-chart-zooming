@@ -26,8 +26,8 @@
 		</license>
 	</licenses>
 	 <scm>
-        <connection>scm:git:git@github.com:silicosciences:/javafx-chart-zooming.git</connection>
-        <developerConnection>scm:git:git@github.com:silicosciences:/javafx-chart-zooming.git</developerConnection>
+        <connection>scm:git:git@github.com:/silicosciences/javafx-chart-zooming.git</connection>
+        <developerConnection>scm:git:git@github.com:/silicosciences/javafx-chart-zooming.git</developerConnection>
         <url>git@github.com:SilicoSciences/javafx-chart-zooming.git</url>
         <tag>HEAD</tag>
     </scm>
