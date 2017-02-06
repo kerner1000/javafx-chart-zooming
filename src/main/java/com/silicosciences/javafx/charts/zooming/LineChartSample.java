@@ -20,6 +20,10 @@ public class LineChartSample extends Application {
 	// defining the axes
 	final NumberAxis xAxis = new NumberAxis();
 	final NumberAxis yAxis = new NumberAxis();
+	xAxis.setAutoRanging(true);
+	xAxis.setForceZeroInRange(false);
+	yAxis.setAutoRanging(true);
+	yAxis.setForceZeroInRange(false);
 	xAxis.setLabel("Number of Month");
 	// creating the chart
 	final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
