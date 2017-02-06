@@ -16,6 +16,9 @@
 ### Maven
 This project is synced to Maven Central, so you can just add the following dependency to your project:
 
-    <groupId>com.github.silicosciences</groupId>
-    <artifactId>javafx-chart-zooming</artifactId>
-    <version>0.0.4</version>
+```xml
+<groupId>com.github.silicosciences</groupId>
+<artifactId>javafx-chart-zooming</artifactId>
+<version>0.0.4</version>
+
+### Eclipse RCP/ OSGi
