@@ -1,5 +1,7 @@
 # JavaFX Chart Zooming Done (somewhat) Better
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming)
+
 ![Demo 1](https://j.gifs.com/xGN7rz.gif)
 
 ![Demo 2](https://j.gifs.com/zmNYl7.gif)
