@@ -6,7 +6,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
-script: "mvn clean package"
+script: "mvn -q clean package"
 notifications:
   email:
     recipients:
