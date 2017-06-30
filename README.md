@@ -2,7 +2,7 @@
 
 |CI|Licence|Maven|
 |-|-|-|
-|||[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming)|
+||[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)|[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming)|
 
 ![Demo 1](https://j.gifs.com/xGN7rz.gif)
 
