@@ -1,4 +1,4 @@
-# JavaFX Chart Zooming Done (somewhat) Better
+# JavaFX Chart Zooming
 
 [![Build Status](https://travis-ci.org/kerner1000/javafx-chart-zooming.svg?branch=master)](https://travis-ci.org/kerner1000/javafx-chart-zooming)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/kerner1000/javafx-chart-zooming/blob/master/LICENSE.txt)
