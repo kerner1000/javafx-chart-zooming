@@ -1,4 +1,4 @@
-package com.silicosciences.javafx.charts.zooming;
+package com.github.javafx.charts.zooming;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

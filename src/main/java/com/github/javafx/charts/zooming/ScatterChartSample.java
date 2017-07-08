@@ -17,7 +17,7 @@ specific language governing permissions and limitations
 * under the License.
  */
 
-package com.silicosciences.javafx.charts.zooming;
+package com.github.javafx.charts.zooming;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
