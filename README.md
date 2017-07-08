@@ -22,7 +22,7 @@ This project is synced to Maven Central, so you can just add the following depen
 
 ```xml
 <dependency>
-<groupId>com.github.silicosciences</groupId>
+<groupId>com.github.kerner1000</groupId>
 <artifactId>javafx-chart-zooming</artifactId>
 <version>0.0.4</version>
 </dependency>
