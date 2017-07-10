@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kerner1000/javafx-chart-zooming.svg?branch=master)](https://travis-ci.org/kerner1000/javafx-chart-zooming)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/kerner1000/javafx-chart-zooming/blob/master/LICENSE.txt)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.kerner1000/javafx-chart-zooming/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.silicosciences/javafx-chart-zooming)
 
 ![Demo 1](https://j.gifs.com/xGN7rz.gif)
 
