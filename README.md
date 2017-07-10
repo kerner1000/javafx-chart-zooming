@@ -24,7 +24,7 @@ This project is synced to Maven Central, so you can just add the following depen
 <dependency>
 <groupId>com.github.kerner1000</groupId>
 <artifactId>javafx-chart-zooming</artifactId>
-<version>0.0.4</version>
+<version>0.0.6</version>
 </dependency>
 ```
 ### Eclipse RCP/ OSGi
