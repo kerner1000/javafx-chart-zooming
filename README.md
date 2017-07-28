@@ -15,11 +15,11 @@
 0. Add Padding functionality.
 
 ## HoTo use
-There is only one class, that is realizing the zooming functionality:
-[ZoomManager](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/ZoomManager.java)
+There is only one class that is realizing the zooming functionality:
+[ZoomManager](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/ZoomManager.java).
 
 Check out the examples on how to use the ZoomManager:
-[Examples](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/)
+[Examples](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/).
 
 ### Maven
 This project is synced to Maven Central, so you can just add the following dependency to your project:
