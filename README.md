@@ -10,13 +10,17 @@
 
 ![Demo 3](https://j.gifs.com/qjXMEk.gif)
 
-
-
 ## ToDo
 0. ~~Only NumberAxis can be zoomed.~~ Fixed.
 0. Add Padding functionality.
 
 ## HoTo use
+There is only one class that is realizing the zooming functionality:
+[ZoomManager](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/ZoomManager.java).
+
+Check out the examples on how to use the ZoomManager:
+[Examples](https://github.com/kerner1000/javafx-chart-zooming/blob/master/src/main/java/com/github/javafx/charts/zooming/).
+
 ### Maven
 This project is synced to Maven Central, so you can just add the following dependency to your project:
 
@@ -24,7 +28,7 @@ This project is synced to Maven Central, so you can just add the following depen
 <dependency>
 <groupId>com.github.kerner1000</groupId>
 <artifactId>javafx-chart-zooming</artifactId>
-<version>0.0.6</version>
+<version>0.0.8</version>
 </dependency>
 ```
 ### Eclipse RCP/ OSGi
