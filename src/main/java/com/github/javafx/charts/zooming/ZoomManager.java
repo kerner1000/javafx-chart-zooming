@@ -23,6 +23,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -103,10 +104,32 @@ public class ZoomManager<X, Y> {
 
 	private volatile boolean zoomed;
 
+	/**
+	 *
+	 *
+	 * Creates a new {@code ZoomManager}.
+	 * </p>
+	 * <b> Due to a bug, {@code series} must not be added to the chart! </b> If you
+	 * do so, the chart will be emtpy.
+	 * </p>
+	 *
+	 *
+	 * @param chartParent
+	 *            the chart's parent {@link Pane}.
+	 * @param chart
+	 *            the {@link XYChart} to which zooming functionality is added
+	 * @param series
+	 *            collection of chart data to display
+	 * @throws IllegalArgumentException
+	 *             if chart data is empty or {@code null}
+	 */
 	public ZoomManager(final Pane chartParent, final XYChart<X, Y> chart,
 			final Collection<? extends Series<X, Y>> series) {
 		super();
-		this.chart = chart;
+		this.chart = Objects.requireNonNull(chart);
+		if (series == null || series.isEmpty()) {
+			throw new IllegalArgumentException("No chart data given");
+		}
 		this.series = FXCollections.observableArrayList(series);
 		restoreData();
 		final Rectangle zoomRect = new Rectangle();
@@ -117,6 +140,25 @@ public class ZoomManager<X, Y> {
 
 	}
 
+	/**
+	 *
+	 *
+	 * Creates a new {@code ZoomManager}.
+	 * </p>
+	 * <b> Due to a bug, {@code series} must not be added to the chart! </b> If you
+	 * do so, the chart will be emtpy.
+	 * </p>
+	 *
+	 *
+	 * @param chartParent
+	 *            the chart's parent {@link Pane}.
+	 * @param chart
+	 *            the {@link XYChart} to which zooming functionality is added
+	 * @param series
+	 *            array of chart data to display
+	 * @throws IllegalArgumentException
+	 *             if chart data is empty or {@code null}
+	 */
 	public ZoomManager(final Pane chartParent, final XYChart<X, Y> chart, final Series<X, Y>... series) {
 		this(chartParent, chart, Arrays.asList(series));
 
