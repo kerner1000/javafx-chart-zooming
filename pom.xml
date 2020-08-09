@@ -1,13 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>javafx-chart-zooming</artifactId>
 	<version>0.0.9-SNAPSHOT</version>
-	 <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-    </parent>
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>9</version>
+	</parent>
 	<developers>
 		<developer>
 			<id>kerner</id>
@@ -25,26 +27,26 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-	 <scm>
-	 <url>git:git@github.com:kerner1000/javafx-chart-zooming.git</url>
-        <connection>scm:git:git@github.com:kerner1000/javafx-chart-zooming.git</connection>
-        <developerConnection>scm:git:git@github.com:kerner1000/javafx-chart-zooming.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
-    
+	<scm>
+		<url>git:git@github.com:kerner1000/javafx-chart-zooming.git</url>
+		<connection>scm:git:git@github.com:kerner1000/javafx-chart-zooming.git</connection>
+		<developerConnection>scm:git:git@github.com:kerner1000/javafx-chart-zooming.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
 
-<distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Nexus release repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus snapshot repository</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>sonatype-nexus-staging</id>
+			<name>Sonatype Nexus release repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -62,7 +64,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		
-	</dependencies>
+	<dependencies />
+
+
 </project>
