@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.kerner1000</groupId>
 	<artifactId>javafx-chart-zooming</artifactId>
-	<version>0.0.9</version>
+	<version>0.0.10-SNAPSHOT</version>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
