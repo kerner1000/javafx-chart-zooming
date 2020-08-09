@@ -251,7 +251,7 @@ public class ZoomManager<X, Y> {
 		}
 	}
 
-	private synchronized void restoreData() {
+	private void restoreData() {
 		// make a tmp variable of data, since we will modify it but need to be
 		// able to restore
 		final ObservableList<XYChart.Series<X, Y>> backup2 = deepCopySeries(series);
@@ -310,7 +310,8 @@ public class ZoomManager<X, Y> {
 			@Override
 			public void handle(final MouseEvent event) {
 
-				final Bounds bb = chartBackground.sceneToLocal(rect.getBoundsInLocal());
+//				final Bounds bb = chartBackground.sceneToLocal(rect.getBoundsInLocal());
+				final Bounds bb = chartBackground.parentToLocal(rect.getBoundsInParent());
 
 				final double minx = bb.getMinX();
 				final double maxx = bb.getMaxX();
